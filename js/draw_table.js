@@ -20,14 +20,6 @@ $(document).ready(function(){
             
         $("thead").append("<tr>"+thead+"</tr>");
         $("tbody").append(tbody);
-
-        if($("#js-search").val() =="")
-        {
-            $(".table").hide();
-        }
-        else
-        {
-            $(".table").show()
-        }
+        $(".table").hide();
     });
 });
