@@ -1,9 +1,9 @@
 $("#ls_query").keyup(function(){
     _this = this;
-    $.each($(".js-table tbody tr"), function() {
+    $.each($(".livesearch-table tbody tr"), function() {
         if($(_this).val().length > 0)
         {    
-            $(".table").show();
+            $(".livesearch-table").show();
             if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
                 $(this).hide();
             else
@@ -11,7 +11,7 @@ $("#ls_query").keyup(function(){
         }
         else
         {
-            //$(".table").hide();
+            //$(".livesearch-table").hide();
         }
     });
 });
