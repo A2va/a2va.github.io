@@ -57,14 +57,12 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" id="ls_query"  type="text" placeholder="Search" aria-label="Search">
-      <div class="dropdown-menu dropdown-menu-right m-0 p-0 mr-4 show" style="overflow:overlay; max-height: 40em; border: none; background-color:unset;" aria-labelledby="qu">
-        <div id="livesearch" style="display: block;">
-          <table class="livesearch-table"> 
+      <div class="dropdown-menu dropdown-menu-right .ml-auto align-baseline  show livesearch" data-toggle="dropdown" style="border: none; background-color:unset;">
+
+          <table class="livesearch-table table-borderless"> 
             <tbody>
-              <tr><td><a class="nav-link" href="https://hardel.fr/">Test</a></td></tr>
             </tbody>
           </table>
-        </div>
       </div>
     </form>
   </div>
@@ -78,8 +76,7 @@
   </div>
 
 </main><!-- /.container -->
-<script src="livesearch/js/jquery.min.js"></script>
-<!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="bootstrap/js/bootstrap.bundle.js"></script>
 <script src="livesearch/js/draw_table.js"></script>
 <script src="livesearch/js/search.js"></script>
