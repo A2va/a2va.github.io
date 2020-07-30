@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $.getJSON("js/data.json", function(results){
+    $.getJSON("livesearch/js/data.json", function(results){
         var thead = "";
         var tbody = "";
         var keyNames = Object.keys(results[0]);
