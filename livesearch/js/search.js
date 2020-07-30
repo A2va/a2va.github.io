@@ -1,4 +1,4 @@
-$("#js-search").keyup(function(){
+$("#ls_query").keyup(function(){
     _this = this;
     $.each($(".js-table tbody tr"), function() {
         if($(_this).val().length > 0)
@@ -11,7 +11,7 @@ $("#js-search").keyup(function(){
         }
         else
         {
-            $(".table").hide();
+            //$(".table").hide();
         }
     });
 });
