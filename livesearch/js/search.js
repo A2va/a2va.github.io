@@ -4,6 +4,7 @@ $("#ls_query").keyup(function(){
         if($(_this).val().length > 0)
         {    
             $(".livesearch-table").show();
+            $(".livesearch").addClass("show");
             if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
                 $(this).hide();
             else
@@ -11,7 +12,8 @@ $("#ls_query").keyup(function(){
         }
         else
         {
-            //$(".livesearch-table").hide();
+            $(".livesearch-table").hide();
+            $(".livesearch").removeClass("show");
         }
     });
 });
