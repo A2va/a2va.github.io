@@ -1,3 +1,4 @@
+//Showdown extension for code highlighting
 showdown.extension('codehighlight', function () {
   function htmlunencode(text) {
     return (
@@ -31,7 +32,7 @@ jQuery(function () {
   hljs.initHighlightingOnLoad();
   elem = $('.markdown');
   $.get(elem.attr('href'), function (data) {
-    var converter = new showdown.Converter({ extensions: ['codehighlight'] });
+    let converter = new showdown.Converter({ extensions: ['codehighlight'] });
 
     let html = converter.makeHtml(data);
     elem.append(html);
