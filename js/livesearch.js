@@ -1,5 +1,5 @@
 jQuery(function () {
-    $.getJSON("js/data.json", function(results){
+    $.getJSON("/js/data.json", function(results){
         var tbody = "";
         var keyNames = Object.keys(results[0]);
         class_link='"nav-link text-dark"'
@@ -13,7 +13,6 @@ jQuery(function () {
         $(".livesearch").removeClass("show");
     });
 });
-
 
 $("#ls_query").keyup(function(){
     _this = this;
