@@ -27,35 +27,29 @@ showdown.extension('codehighlight', function () {
   ];
 });
 
-jQuery(function () {
-  $("a").click(function () {
-      event.preventDefault();
-      host = location.host;
-      const url = this.href;
+$("a").click(function () {
+  event.preventDefault();
+  host = location.host;
+  const url = this.href;
 
-      if (url.indexOf(host) > -1 || url.indexOf('http', 'https') == -1) {
-          //Stay on the website
-          console.log('Stay')
-          if (url.endsWith('.md')) {
-              console.log('Markdown link');
-              $.get(url, function (data) {
-                  var converter = new showdown.Converter({ extensions: ['codehighlight'] });
+  if (url.indexOf(host) > -1 || url.indexOf('http', 'https') == -1) {
+    if (url.endsWith('.md')) {
+      $.get(url, function (data) {
+        var converter = new showdown.Converter({ extensions: ['codehighlight'] });
 
-                  let html = converter.makeHtml(data);
-                  $('.main_placeholder').empty()
-                  $('.main_placeholder').append(html)
-              });
-          }
-          else {
-              location.href = url;
-          }
-      }
-      else {
-          location.href = url;
-      }
-  });
+        let html = converter.makeHtml(data);
+        $('.main_placeholder').empty()
+        $('.main_placeholder').append(html)
+      });
+    }
+    else {
+      location.href = url;
+    }
+  }
+  else {
+    location.href = url;
+  }
 });
-
 
 jQuery(function () {
   elem = $('.markdown');
