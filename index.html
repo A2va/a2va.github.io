@@ -7,12 +7,28 @@
   <meta name="description" content="">
   <meta name="author" content="A2va">
   <title>A2va</title>
-  <!-- Bootstrap core CSS -->
+  <!-- Import CSS files -->
   <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/highlight_default.css">
+  <!-- Import javascript files -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script> hljs.initHighlightingOnLoad();</script>
+  <script src="js/livesearch.js"></script>
+  <script src="js/markdown.js"></script>
+  <!-- Load the navigation bar -->
+  <script>
+    jQuery(function () {
+      let data = $("#nav-placeholder").load("html/navigation-bar.html");
+    });
+  </script>
 </head>
 
 <body>
+  <!-- A placeholder for the navigation bar -->
   <div id="nav-placeholder">
 
   </div>
@@ -24,18 +40,6 @@
     </div>
 
   </main><!-- /.container -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="bootstrap/js/bootstrap.bundle.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-  <script> hljs.initHighlightingOnLoad();</script>
-  <script src="js/livesearch.js"></script>
-  <script src="js/markdown.js"></script>
-  <script>
-    jQuery(function () {
-      $("#nav-placeholder").load("navigation.html");
-    });
-    </script>
 </body>
 
 </html>
