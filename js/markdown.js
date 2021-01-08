@@ -27,31 +27,52 @@ showdown.extension('codehighlight', function () {
   ];
 });
 
-jQuery(function () {
-  $("a").click(function () {
-    event.preventDefault();
-    host = location.host;
-    const url = this.href;
 
-    if (url.indexOf(host) > -1 || url.indexOf('http', 'https') == -1) {
-      if (url.endsWith('.md')) {
-        $.get(url, function (data) {
+$(document).on("click", "a", function () {
+  event.preventDefault(); //Stop the redirection of the link
+  host = location.host;
+  const url = this.href;
+
+  if (url.indexOf(host) > -1 || url.indexOf('http', 'https') == -1) {
+    if (url.endsWith('.md')) {
+      $.get(url, function (data) {
+        if (location.origin + '/' != location.href) { //It isn't the index.html file
+          //It save the markdown data and set return to index to true
+          sessionStorage .setItem("return_to_index", true);
+          sessionStorage .setItem("markdown_data", data);
+          location.href = location.origin + '/'; //Go to the index
+
+        }
+        else {//It's the index.html
           var converter = new showdown.Converter({ extensions: ['codehighlight'] });
 
           let html = converter.makeHtml(data);
-          $('.main_placeholder').empty()
-          $('.main_placeholder').append(html)
-        });
-      }
-      else {
-        location.href = url;
-      }
+          $('.main_placeholder').empty();
+          $('.main_placeholder').append(html);
+        }
+      });
     }
     else {
+
       location.href = url;
     }
-  });
+  }
+  else {
+    location.href = url;
+  }
 });
+
+jQuery(function () {
+  if (sessionStorage .getItem('return_to_index')) {
+    //Diplay markdown after return to index
+    var converter = new showdown.Converter({ extensions: ['codehighlight'] });
+    let data = sessionStorage.getItem('markdown_data');
+    let html = converter.makeHtml(data);
+    $('.main_placeholder').empty();
+    $('.main_placeholder').append(html);
+  }
+});
+
 
 jQuery(function () {
   elem = $('.markdown');
@@ -62,4 +83,4 @@ jQuery(function () {
     elem.append(html);
   });
 
-})
+});
