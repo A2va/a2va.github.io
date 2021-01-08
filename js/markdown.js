@@ -27,28 +27,30 @@ showdown.extension('codehighlight', function () {
   ];
 });
 
-$("a").click(function () {
-  event.preventDefault();
-  host = location.host;
-  const url = this.href;
+jQuery(function () {
+  $("a").click(function () {
+    event.preventDefault();
+    host = location.host;
+    const url = this.href;
 
-  if (url.indexOf(host) > -1 || url.indexOf('http', 'https') == -1) {
-    if (url.endsWith('.md')) {
-      $.get(url, function (data) {
-        var converter = new showdown.Converter({ extensions: ['codehighlight'] });
+    if (url.indexOf(host) > -1 || url.indexOf('http', 'https') == -1) {
+      if (url.endsWith('.md')) {
+        $.get(url, function (data) {
+          var converter = new showdown.Converter({ extensions: ['codehighlight'] });
 
-        let html = converter.makeHtml(data);
-        $('.main_placeholder').empty()
-        $('.main_placeholder').append(html)
-      });
+          let html = converter.makeHtml(data);
+          $('.main_placeholder').empty()
+          $('.main_placeholder').append(html)
+        });
+      }
+      else {
+        location.href = url;
+      }
     }
     else {
       location.href = url;
     }
-  }
-  else {
-    location.href = url;
-  }
+  });
 });
 
 jQuery(function () {
