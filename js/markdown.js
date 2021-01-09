@@ -19,6 +19,7 @@ showdown.extension('codehighlight', function () {
           replacement = function (wholeMatch, match, left, right) {
             // unescape match to prevent double escaping
             match = htmlunencode(match);
+            hljs.initHighlightingOnLoad();
             return left + hljs.highlightAuto(match).value + right;
           };
         return showdown.helper.replaceRecursiveRegExp(text, replacement, left, right, flags);
@@ -63,13 +64,16 @@ $(document).on("click", "a", function () {
 });
 
 jQuery(function () {
-  if (sessionStorage .getItem('return_to_index')) {
+  if (sessionStorage.getItem('return_to_index')) {
+    sessionStorage.setItem('return_to_index',false);
     //Diplay markdown after return to index
     var converter = new showdown.Converter({ extensions: ['codehighlight'] });
     let data = sessionStorage.getItem('markdown_data');
+    sessionStorage.setItem('markdown_data','');
     let html = converter.makeHtml(data);
     $('.main_placeholder').empty();
     $('.main_placeholder').append(html);
+    
   }
 });
 
