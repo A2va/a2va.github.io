@@ -39,7 +39,7 @@ jQuery(function () {
     });
 });
 
-$("#ls_query").keyup(function(){
+$(document).on('keyup','#ls_query',function () {
     _this = this;
     $.each($(".livesearch-table tbody tr"), function() {
         if($(_this).val().length > 0)
