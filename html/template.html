@@ -18,9 +18,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <!-- Load the navigation bar -->
   <script>
-    jQuery(function () {
-      let data = $("#nav-placeholder").load("/html/navigation-bar.html");
-    });
+    window.onload = (event) => {
+      fetch('/html/navigation-bar.html')
+        .then(response => response.text())
+        .then(text => {
+          document.getElementById("nav-placeholder").innerHTML = text;
+        });
+    };
   </script>
   <script src="/js/livesearch.js"></script>
   <script src="/js/markdown.js"></script>
