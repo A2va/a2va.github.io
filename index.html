@@ -16,16 +16,6 @@
   <script src="bootstrap/js/bootstrap.bundle.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-  <!-- Load the navigation bar -->
-  <script>
-    window.onload = (event) => {
-      fetch('/html/navigation-bar.html')
-        .then(response => response.text())
-        .then(text => {
-          document.getElementById("nav-placeholder").innerHTML = text;
-        });
-    };
-  </script>
   <script src="/js/livesearch.js"></script>
   <script src="/js/markdown.js"></script>
 
@@ -36,6 +26,11 @@
   <div id="nav-placeholder">
   </div>
   <main role="main" class="container">
+    <table class="livesearch-table" id="livesearch-table" table-borderless>
+      <tbody id="livesearch-table-body">
+
+      </tbody>
+    </table>
     <div class="main_text main_placeholder">
       <h1>Bootstrap starter template</h1>
       <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
