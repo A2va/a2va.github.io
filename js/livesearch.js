@@ -24,61 +24,62 @@
 // https://github.com/IndianGhost/liveSearch
 
 
-window.addEventListener('load', (event) => {
-    fetch('/html/navigation-bar.html')
-        .then(response => response.text())
-        .then(text => {
-            // Place navigation bar
-            document.getElementById("nav-placeholder").innerHTML = text;
+// window.addEventListener('load', (event) => {
+//     fetch('/html/navigation-bar.html')
+//         .then(response => response.text())
+//         .then(text => {
+//             // Place navigation bar
+//             document.getElementById("nav-placeholder").innerHTML = text;
 
-            // Load livesearch data
-            fetch('/js/data.json')
-                .then(response => response.json())
-                .then(jsonResponse => {
-                    let tbody = "";
-                    let keyNames = Object.keys(jsonResponse[0]);
-                    let class_link = '"nav-link text-dark"';
-                    for (let j = 0; j < jsonResponse.length; j++) {
-                        
-                        tbody += `<tr><td><a class=${class_link} href=${jsonResponse[j][keyNames[1]]}>${jsonResponse[j][keyNames[0]]}</a></td></tr>`;
-                    }
+//             // Load livesearch data
+//             fetch('/js/data.json')
+//                 .then(response => response.json())
+//                 .then(jsonResponse => {
+//                     let tbody = "";
+//                     let keyNames = Object.keys(jsonResponse[0]);
+//                     let class_link = '"nav-link text-dark"';
+//                     for (let j = 0; j < jsonResponse.length; j++) {
 
-                    document.getElementById("livesearch-table-body").innerHTML = tbody;
-                    document.getElementById('livesearch-table').style.display = 'block'; // show
-                    //document.getElementById('livesearch-table').style.display = 'none'; // hide
-                    document.getElementById('livesearch').classList.remove("show");
+//                         tbody += `<tr><td><a class=${class_link} href=${jsonResponse[j][keyNames[1]]}>${jsonResponse[j][keyNames[0]]}</a></td></tr>`;
+//                     }
+
+//                     document.getElementById("livesearch-table-body").innerHTML = tbody;
+//                     document.getElementById('livesearch-table').style.display = 'block'; // show
+//                     //document.getElementById('livesearch-table').style.display = 'none'; // hide
+//                     document.getElementById('livesearch').classList.remove("show");
 
 
-                    // Set the event for ls_queryd
-                    document.getElementById('ls_query').addEventListener("keyup", search);
+//                     // Set the event for ls_queryd
+//                     document.getElementById('ls_query').addEventListener("keyup", search);
 
-                });
+//                     //console.log(document.querySelectorAll("a"));
 
-        });
-});
+//                     document.querySelectorAll("a").forEach(function (node) {
+//                         node.addEventListener("click", link);
+//                     });
 
-function search(event)
-{
+//                 });
+
+//         });
+// });
+
+export function search(event) {
     let _this = this;
-    document.querySelectorAll(".livesearch-table tbody tr").forEach(function (node){
-        if(_this.value.length > 0)
-        {
+    document.querySelectorAll(".livesearch-table tbody tr").forEach(function (node) {
+        if (_this.value.length > 0) {
             document.getElementById('livesearch-table').style.display = 'block'; // show¨
             document.getElementById('livesearch').classList.add("show");
-            if(node.outerText.toLowerCase().indexOf(_this.value.toLowerCase()) === -1)
-            {
-                node.style.display= 'none'; // hide
+            if (node.outerText.toLowerCase().indexOf(_this.value.toLowerCase()) === -1) {
+                node.style.display = 'none'; // hide
             }
-            else
-            {
-                node.style.display= 'block'; // show
+            else {
+                node.style.display = 'block'; // show
             }
         }
-        else
-        {
+        else {
             document.getElementById('livesearch-table').style.display = 'none'; // hide
             document.getElementById('livesearch').classList.remove("show");
         }
     });
-    
+
 }
