@@ -35,7 +35,6 @@ window.addEventListener('load', (event) => {
             fetch('/js/data.json')
                 .then(response => response.json())
                 .then(jsonResponse => {
-                    console.log(jsonResponse);
                     let tbody = "";
                     let keyNames = Object.keys(jsonResponse[0]);
                     let class_link = '"nav-link text-dark"';
@@ -60,51 +59,26 @@ window.addEventListener('load', (event) => {
 
 function search(event)
 {
-    // let _this = this;
-    let nodes = Array.from(document.getElementById('livesearch-table-body').children);
-    nodes.forEach(function (node) {
-           console.log(node.innerHTML); 
-    });
-}
-
-// jQuery(function () {
-//     $.getJSON("/js/data.json", function(results){
-//         var tbody = "";
-//         var keyNames = Object.keys(results[0]);
-//         class_link='"nav-link dropdown-item text-white"'
-//         for(var j=0; j<results.length; j++)
-//         {
-//             tbody += "<tr><td><a class=" + class_link + "href="+results[j][keyNames[1]]+">"+ results[j][keyNames[0]]+"</a></td></tr>";
-//         }
-
-//         $("#livesearch-table-body").append(tbody);
-//         $(".livesearch-table").hide();
-//         $(".livesearch").removeClass("show");
-//     });
-// });
-
-// document.getElementById('ls_query').addEventListener("keyup", (event) => {
-//     let _this = this;
-//     document.getElementById('livesearch-table').forEach(function (node) {
-
-//     });
-
-// });
-
-$(document).on('keyup', '#ls_query', function () {
-    _this = this;
-    $.each($(".livesearch-table tbody tr"), function () {
-        if ($(_this).val().length > 0) {
-            $(".livesearch-table").show();
-            $(".livesearch").addClass("show");
-            if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-                $(this).hide();
+    let _this = this;
+    document.querySelectorAll(".livesearch-table tbody tr").forEach(function (node){
+        if(_this.value.length > 0)
+        {
+            document.getElementById('livesearch-table').style.display = 'block'; // show¨
+            document.getElementById('livesearch').classList.add("show");
+            if(node.outerText.toLowerCase().indexOf(_this.value.toLowerCase()) === -1)
+            {
+                node.style.display= 'none'; // hide
+            }
             else
-                $(this).show();
+            {
+                node.style.display= 'block'; // show
+            }
         }
-        else {
-            $(".livesearch-table").hide();
-            $(".livesearch").removeClass("show");
+        else
+        {
+            document.getElementById('livesearch-table').style.display = 'none'; // hide
+            document.getElementById('livesearch').classList.remove("show");
         }
     });
-});
+    
+}
