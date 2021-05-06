@@ -1,42 +1,40 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_redstone"
-    aria-controls="navbar_redstone" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Expand at md</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
+      aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse" id="navbar_redstone">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="https://a2va.github.io/">A2va<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/html/file.md">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/html/markdown.html">Link 2</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" id="ls_query" type="text" placeholder="Search" aria-label="Search">
-      <div class="dropdown-menu dropdown-menu-right col-md-3 bg-wight border" id="livesearch">
+    <div class="collapse navbar-collapse" id="navbarsExample04">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown"
+            aria-expanded="false">Dropdown</a>
+          <ul class="dropdown-menu" aria-labelledby="dropdown04">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form>
+        <input class="form-control" type="text" id="ls_query" placeholder="Search" aria-label="Search">
+        <div class="dropdown-menu dropdown-menu-right col-md-3 bg-wight border" id="livesearch">
           <table class="livesearch-table table-borderless" id="livesearch-table">
             <tbody id="livesearch-table-body">
             </tbody>
-        </table>
-      </div>
-    </form>
+          </table>
+        </div>
+      </form>
+    </div>
   </div>
 </nav>

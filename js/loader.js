@@ -17,7 +17,9 @@ window.addEventListener('load', (event) => {
                     let class_link = '"nav-link text-dark"';
                     for (let j = 0; j < jsonResponse.length; j++) {
 
-                        tbody += `<tr><td><a class=${class_link} href=${jsonResponse[j][keyNames[1]]}>${jsonResponse[j][keyNames[0]]}</a></td></tr>`;
+                        tbody += `<tr><td><a class="nav-link active" aria-current="page" href=${jsonResponse[j][keyNames[1]]}>${jsonResponse[j][keyNames[0]]}</a></td></tr>`;
+                    
+                        //tbody += `<tr><td><a class=${class_link} href=${jsonResponse[j][keyNames[1]]}>${jsonResponse[j][keyNames[0]]}</a></td></tr>`;
                     }
 
                     document.getElementById("livesearch-table-body").innerHTML = tbody;

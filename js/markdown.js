@@ -51,6 +51,13 @@ export function link(event) {
           }
         });
     }
+    else{
+      location.href = url;
+    }
+
+  }
+  else{
+    location.href = url;
   }
 }
 
