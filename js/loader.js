@@ -14,12 +14,9 @@ window.addEventListener('load', (event) => {
                 .then(jsonResponse => {
                     let tbody = "";
                     let keyNames = Object.keys(jsonResponse[0]);
-                    let class_link = '"nav-link text-dark"';
                     for (let j = 0; j < jsonResponse.length; j++) {
 
-                        tbody += `<tr><td><a class="nav-link active" aria-current="page" href=${jsonResponse[j][keyNames[1]]}>${jsonResponse[j][keyNames[0]]}</a></td></tr>`;
-                    
-                        //tbody += `<tr><td><a class=${class_link} href=${jsonResponse[j][keyNames[1]]}>${jsonResponse[j][keyNames[0]]}</a></td></tr>`;
+                        tbody += `<tr><td><a class="nav-link active text-dark" aria-current="page" href=${jsonResponse[j][keyNames[1]]}>${jsonResponse[j][keyNames[0]]}</a></td></tr>`; 
                     }
 
                     document.getElementById("livesearch-table-body").innerHTML = tbody;
@@ -28,7 +25,7 @@ window.addEventListener('load', (event) => {
                     document.getElementById('livesearch').classList.remove("show");
 
 
-                    // Set the event for ls_queryd
+                    // Set the event for ls_query
                     document.getElementById('ls_query').addEventListener("keyup", search);
 
                     //console.log(document.querySelectorAll("a"));
